@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+ <ion-grid *ngIf="weather" >
+   <ion-row>
+     <ion-col width-50 offset-25>
+       <h1 class="location">{{weather.name}}, {{weather.sys.country}}</h1>
+       <div class="icon">
+          <img src="{{urlimage}}{{weather.weather[0].icon}}.png" alt="">
+        </div>
+        <div class="desc">
+          <strong>
+            {{weather.weather[0].description}} /
+            Clouds {{weather.clouds.all}}%       
+          </strong>          
+        </div>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+    <ion-col width-100> 
+      
+      <div class="temp">
+          {{weather.main.temp}}°                
+      </div>
+      <br>
+    </ion-col>
+  </ion-row>
+   <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+               coords(lon, lat): {{weather.coord.lon}}, {{weather.coord.lat}}
+          </ion-item>
+          <ion-item>             
+                Humidity: {{weather.main.humidity}}%
+            </ion-item>
+        </ion-list>          
+      </ion-col>
+    </ion-row>   
+
+ </ion-grid>
+</ion-content>
